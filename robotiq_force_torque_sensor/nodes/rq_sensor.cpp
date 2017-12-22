@@ -189,13 +189,17 @@ int main(int argc, char **argv)
 	ros::init(argc, argv, "robotiq_force_torque_sensor");
 	ros::NodeHandle n;
 	ros::param::param<int>("~max_retries", max_retries_, 100);
+	std::string device_string;
+	ros::param::param<std::string>("~interface", device_string, "");
 
-    INT_8 * device;
-    if(argc > 1){
-        device = argv[1];
-    }else{
-        device = NULL;
-    }
+	INT_8 * device;
+
+	if(!device_string.empty()){
+		device = new char[device_string.length() + 1];
+		strcpy(device, device_string.c_str());
+	}else{
+		device = NULL;
+	}
 
 	INT_8 bufStream[512];
 	robotiq_force_torque_sensor::ft_sensor msgStream;
