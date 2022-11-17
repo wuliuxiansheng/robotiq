@@ -1,5 +1,14 @@
 # Robotiq
 
+## Requirements
+
+```zsh
+sudo apt install ros-noetic-soem
+sudo apt install ros-noetic-socketcan-interface
+sudo apt install ros-noetic-gazebo-plugins
+sudo apt install ros-noetic-tf-conventions
+```
+
 ## Status
 
 This repository (fork of [ros-industrial](https://github.com/ros-industrial/robotiq)) is now ***maintained*** by TAMS group from Univeristy of Hamburg.
